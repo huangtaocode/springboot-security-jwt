@@ -4,9 +4,12 @@
 spring:
   profiles:
     active: dev
+  output:
+    ansi:
+      enabled: ALWAYS
 liquibase:
   enabled: true
-  drop-first: true
+  drop-first: false
   change-log: classpath:/dbmigraions/changelog.xml
 ---
 # 开发配置

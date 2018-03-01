@@ -1,4 +1,4 @@
-package codetao.dao;
+package codetao.repository;
 
 import codetao.domain.Role;
 import org.springframework.data.jpa.repository.JpaRepository;

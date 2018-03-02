@@ -3,15 +3,15 @@ package codetao.init;
 import codetao.domain.Role;
 import codetao.domain.User;
 import codetao.domain.UserRole;
+import codetao.repository.RoleDao;
 import codetao.repository.UserDao;
+import codetao.repository.UserRoleDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
 
 /**
  * 服务启动引导
@@ -22,22 +22,16 @@ import javax.annotation.Resource;
 public class BootStrap implements CommandLineRunner{
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
-
-    @Resource
+    @Autowired
     private UserDao userDao;
-
-//    @Autowired
-//    private RoleDao roleDao;
-//    @Autowired
-//    private UserRoleDao userRoleDao;
+    @Autowired
+    private RoleDao roleDao;
+    @Autowired
+    private UserRoleDao userRoleDao;
 
     @Override
     public void run(String... args) throws Exception {
         log.info(">>>>>>>>>>>>>>> BootStrap begin <<<<<<<<<<<<<");
-
-
-
-        /**
 
         User user = userDao.findByUsername("demo");
         if(user == null){
@@ -62,7 +56,6 @@ public class BootStrap implements CommandLineRunner{
             userRole.setRoleId(role.getId());
             userRoleDao.save(userRole);
         }
-         */
 
         log.info(">>>>>>>>>>>>>>> BootStrap end <<<<<<<<<<<<<");
     }

@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Collections;
 
+/**
+ * Created by taohuang on 2018/3/2.
+ */
 public class JwtAuthenticationFilter extends GenericFilterBean {
 
     @Override

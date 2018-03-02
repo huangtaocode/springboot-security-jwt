@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 /**
@@ -37,7 +38,7 @@ public class BootStrap implements CommandLineRunner{
         if(user == null){
             user = new User();
             user.setUsername("demo");
-            user.setPassword("demo");
+            user.setPassword(new BCryptPasswordEncoder().encode("demo"));
             userDao.save(user);
         }
 

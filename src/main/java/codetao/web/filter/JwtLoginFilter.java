@@ -1,4 +1,4 @@
-package codetao.config;
+package codetao.web.filter;
 
 import codetao.domain.User;
 import codetao.service.TokenAuthenticationService;
@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.FilterChain;
@@ -33,7 +34,7 @@ public class JwtLoginFilter extends UsernamePasswordAuthenticationFilter {
             );
             return getAuthenticationManager().authenticate(authentication);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new UsernameNotFoundException("username not found", e);
         }
     }
 

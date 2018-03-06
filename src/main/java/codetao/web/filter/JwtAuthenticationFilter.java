@@ -1,4 +1,4 @@
-package codetao.config;
+package codetao.web.filter;
 
 import codetao.service.TokenAuthenticationService;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
